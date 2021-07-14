@@ -23,3 +23,4 @@ var go_QR = function () {
 }
 img.addEventListener('click', img_rotate);
 QR_button.addEventListener('click', go_QR);
+
