@@ -140,7 +140,6 @@ function previewFile(input) {
         qrCanvas.drawImage(tmpImage, 0, 0, tmpImage.width, tmpImage.height);
         try {
             var result = qrcode.decode();
-            console.log(result);
             var check = confirm(result + "로 이동하겠습니까?");
             if (check) {
                 window.open(result, '_self');
@@ -157,3 +156,6 @@ function previewFile(input) {
         }
     }
 }
+
+
+
