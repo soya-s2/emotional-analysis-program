@@ -12,9 +12,12 @@ window.onload = function () {
     } else {
         document.querySelector("#lightBtn").style.display = "inline-block";
     }
+    console.log(os);
+    console.log(navigator.mediaDevices);
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
     if (navigator.mediaDevices === undefined) {
         navigator.mediaDevices = {};
+        console.log("mediaDevice없음");
     }
 
     // Some browsers partially implement mediaDevices. We can't just assign an object
@@ -24,8 +27,8 @@ window.onload = function () {
         navigator.mediaDevices.getUserMedia = function (constraints) {
 
             // First get ahold of the legacy getUserMedia, if present
-            var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
+            var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
+            console.log(getUserMedia);
             // Some browsers just don't implement it - return a rejected promise with an error
             // to keep a consistent interface
             if (!getUserMedia) {

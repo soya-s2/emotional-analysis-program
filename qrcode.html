@@ -1,9 +1,9 @@
-﻿<html>
+﻿﻿<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>QRcode-scanner</title>
-    <link href="./css/qrcodecss.css" type="text/css" rel="stylesheet" />
+    <link href="./css/qrcode.css" type="text/css" rel="stylesheet" />
     <link rel="manifest" href="./js/manifest.json" />
     <script type="text/javascript" src="./js/grid.js"></script>
     <script type="text/javascript" src="./js/version.js"></script>
@@ -25,9 +25,13 @@
     <script type="text/javascript" src="./js/utility.js"></script>
     <script type="text/javascript" src="./js/bowser.js"></script>
     <script type="text/javascript" src="./js/main.js" charset="euc-kr"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR&display=swap');
+    </style>
 </head>
 <body>
     <!-- 상단 버튼 -->
+    <button class="home_button">< HOME</button>
     <!-- 플래쉬 버튼 -->
     <label for="light_button" id="lightBtn">
         <img class="icon" id="flash" src="images/flash-off.png" />
@@ -48,12 +52,13 @@
             <div id="finger_box">
                 <img id="box" src="images/box.png" alt="">
                 <img id="line" src="images/line.png" alt="">
-                <p id="info">화면에 QR코드를 위치시키세요</p>
+                <p id="info">테두리에 맞추어 <br> QR 코드를 촬영해 주세요!</p>
             </div>
         </div>
         <!-- 비디오&캔버스 -->
         <video id="video-preview" data-video-type="user" data-csw-streamid="F35A8axaNBSJHY9vDxVmDewdOdP2vHUthKUN" data-tid="@1ea41ed5-419d-4f04-8683-1f407f0e5a1a@f20a276c-4954-46c6-9b95-2b64495f6c4e" autoplay></video>
         <canvas id="qr-canvas" class="hidden"></canvas>
     </div>
+<script type="text/javascript" src="go_start_page.js"></script>
 </body>
-</html>
+</html> 

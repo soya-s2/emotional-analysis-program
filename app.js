@@ -133,6 +133,10 @@ app.get('/js/version.js', (request, response) => {
   response.sendFile(__dirname + '/js/' + 'version.js');
 });
 
+app.get('/js/manifest.json', (request, response) => {
+  response.sendFile(__dirname + '/js/' + 'manifest.json');
+});
+
 app.get('/qrcode.html', (request, response) => {
   response.sendFile(__dirname + '/qrcode.html');
 });
