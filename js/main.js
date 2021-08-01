@@ -17,7 +17,7 @@ window.onload = function () {
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
     if (navigator.mediaDevices === undefined) {
         navigator.mediaDevices = {};
-        console.log("mediaDevice없음");
+        console.log("mediaDevice 없음");
     }
 
     // Some browsers partially implement mediaDevices. We can't just assign an object
