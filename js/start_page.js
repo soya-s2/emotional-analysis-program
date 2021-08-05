@@ -18,7 +18,14 @@ var img_rotate = function () {
 };
 
 var go_QR = function () {
+  var CLICK_CLASS = 'click';
+  
+  const hasClickClass = QR_button.classList.contains(CLICK_CLASS);
+  if (!hasClickClass) {
+    QR_button.classList.add(CLICK_CLASS);
+  } 
   setTimeout(function () {
+    QR_button.classList.remove(CLICK_CLASS);
     window.location.href = '../qrcode.html';
   }, 1000);
 }
