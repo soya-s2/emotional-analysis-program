@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'RixYeoljeongdo_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+  }
+  
 * {
-    font-family: 'Gugi', cursive;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 600;
+font-family: 'RixYeoljeongdo_Regular', cursive;
 }
+
 
 html, body {
     width: 100%;
@@ -59,6 +65,7 @@ p {
     position: fixed;
     top: 160%;
     right: -50%;
+    font-weight: lighter;
 }
 /*���� �̵� ȿ��*/
 @keyframes line {
@@ -189,8 +196,11 @@ img:not(#image_section):not(.icon){
 }
 
 .home_button {
+    border: none;
     padding: 10px;
     font-size: 1.1em;
     background-color: white;
-    margin: 10px;
+    margin: 15 0 0 12;
+    border-radius: 1.5em;
+    font-weight: lighter;
 } 

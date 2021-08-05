@@ -1,21 +1,32 @@
+@font-face {
+  font-family: 'RixYeoljeongdo_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+  font-weight: thin;
+  font-style: normal;
+}
+
 * {
-  font-family: 'Gugi', cursive;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 700;
+  font-family: 'RixYeoljeongdo_Regular', cursive;
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
+  background: linear-gradient(to right bottom, #d0ffcb, #2efff8);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
   text-align: center;
   overflow: hidden;
 }
 
 .container {
   margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .img {
@@ -24,26 +35,23 @@ body {
   height: 100%;
 }
 
-.img:hover {
-  transition: ease-in 0.8s;
-  transform:rotate3d(2, 2, 2, 720deg);
-}
-
 .img img {
-  margin: 0 auto 70px auto;
+  margin: 0 auto;
   width: 70%;
   height: 70%;
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .txt {
+  margin: 0 auto;
   width: 325px;
+  color: #4D07e6;
+  text-align: center;
 }
 
-.QR_txt:hover {
-  font-size: 2.1em;
-  transition: 0.2s ease-in-out;
+h1 {
+  font-weight: lighter;
 }
 
 .button {
@@ -52,28 +60,23 @@ body {
 
 .list_button, .QR_button {
   font-size: 1.5em;
-  padding: 5px 25px 10px 25px;
+  padding: 10px 25px 10px 25px;
   margin: 0px 15px 5px 15px;
-  border: 3px black solid;
   letter-spacing: 0.1em;
-  background-color: rgba(202, 202, 202, 0.582);
+  background-color: #4606d1;
+  color: white;
+  border: none;
+  border-radius: 1em;
 }
 
-.list_button:hover, .QR_button:hover {
-  transition: ease-in-out 0.2s;
-  border-bottom-right-radius: 35%;
-  background-color: black;
-  color: white;
-}
 
 .rotate {
-  transition: ease-in-out 0.8s;
-  transform:rotate3d(2, 2, 2, 720deg);
+  transition: all 1000ms cubic-bezier(0.785, 0.135, 0.150, 0.860); /* easeInOutCirc */
+  transform: rotateZ(360deg);
 }
 
-.btn_click {
-  transition: ease-in-out 0.2s;
-  border-bottom-right-radius: 35%;
+.click {
+  transition: ease-in-out 0.4s;
   background-color: black;
   color: white;
 }
