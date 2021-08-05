@@ -178,7 +178,7 @@ app.get('/output.html', (request, response) => {
       <h1 class="price"> ${product.price}원 </h1>
       <h1 class="capacity"> ${product.capacity}g </h1>
    
-      <h1> 탄수화물 <br> ${product.carbohydrate}</h1>
+      <h1 class="carbohydarate"> 탄수화물 <br> ${product.carbohydrate}</h1>
       <h1> 단백질 <br>  ${product.protein}</h1>
       <h1> 지방 <br>  ${product.fat}</h1>
 
