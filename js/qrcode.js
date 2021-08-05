@@ -27,8 +27,8 @@ qrcode.sizeOfDataLengthInfo =  [  [ 10, 9, 8, 8 ],  [ 12, 11, 16, 10 ],  [ 14, 1
 
 qrcode.callback = null;
 
-qrcode.decode = function (src) { //Canvas¿¡ µé¾î¿Â ÀÌ¹ÌÁö Ã³¸®
-    if(arguments.length==0)  //ÇÔ¼ö·Î µé¾î¿Â ÀÎÀÚ°¡ ¾øÀ»°æ¿ì(½ºÆ®¸®¹Ö Áß ½Ç½Ã°£ µðÄÚµù)
+qrcode.decode = function (src) { //Canvasï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+    if(arguments.length==0)  //ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç½Ã°ï¿½ ï¿½ï¿½ï¿½Úµï¿½)
     {
         if(qrcode.canvas_qr2)
         {
@@ -202,7 +202,7 @@ qrcode.process = function(ctx){
     
     var end = new Date().getTime();
     var time = end - start;
-    console.log(time);
+    //console.log(time);
     
     return qrcode.decode_utf8(str);
     //alert("Time:" + time + " Code: "+str);

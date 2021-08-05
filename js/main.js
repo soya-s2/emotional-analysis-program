@@ -4,6 +4,7 @@
 var lightFlag
 var stop
 
+
 /*창 로드시 실행*/
 window.onload = function () {
     var os = getMobileOperatingSystem()
@@ -12,12 +13,12 @@ window.onload = function () {
     } else {
         document.querySelector("#lightBtn").style.display = "inline-block";
     }
-    console.log(os);
-    console.log(navigator.mediaDevices);
+    console.log("OS : ", os);
+    console.log("mediaDevices : ", navigator.mediaDevices);
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
     if (navigator.mediaDevices === undefined) {
         navigator.mediaDevices = {};
-        console.log("mediaDevice 없음");
+        console.log("mediaDevice is not defined");
     }
 
     // Some browsers partially implement mediaDevices. We can't just assign an object
@@ -28,7 +29,6 @@ window.onload = function () {
 
             // First get ahold of the legacy getUserMedia, if present
             var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
-            console.log(getUserMedia);
             // Some browsers just don't implement it - return a rejected promise with an error
             // to keep a consistent interface
             if (!getUserMedia) {
@@ -70,9 +70,18 @@ function findQR() {
         qrCanvas.drawImage(video, 0, 0, qrCanvasElement.width, qrCanvasElement.height);
         try {
             var result = qrcode.decode();
-            var check = confirm(result + "로 이동하겠습니까?");
-            if (check)
-                window.open(result, '_self');
+            var check = confirm("제품 정보 보기 페이지로 이동하겠습니까?");
+            
+            if (check) {
+                // query(쿼리문, 콜백함수)
+                console.log("Agree to another page");
+                window.location.href = './output.html';
+                console.log("값 : " + result);
+                console.log("타입 : " + typeof (result));
+                localStorage.setItem("QR 코드 결과", result);
+            } else {
+                console.log("Disagree to move another page");
+            }
         } catch (e) {
             /* 인식 못한 경우 */
         }
@@ -143,9 +152,9 @@ function previewFile(input) {
         qrCanvas.drawImage(tmpImage, 0, 0, tmpImage.width, tmpImage.height);
         try {
             var result = qrcode.decode();
-            var check = confirm(result + "로 이동하겠습니까?");
+            var check = confirm("제품 정보 보기 페이지로 이동하겠습니까?");
             if (check) {
-                window.open(result, '_self');
+
             }
             else {
                 document.querySelector("#image_section").style.display = "none";

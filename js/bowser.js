@@ -43,7 +43,7 @@
         , opera: t
         , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (/yabrowser/i.test(ua)) {
         result = {
@@ -51,14 +51,13 @@
         , yandexbrowser: t
         , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (/windows phone/i.test(ua)) {
         result = {
           name: 'Windows Phone'
         , windowsphone: t
         }
-        console.log(result.name);
         if (edgeVersion) {
           result.msedge = t
           result.version = edgeVersion
@@ -67,6 +66,7 @@
           result.msie = t
           result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
         }
+        console.log("Browser Name : ", result.name);
       }
       else if (/msie|trident/i.test(ua)) {
         result = {
@@ -74,7 +74,7 @@
         , msie: t
         , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       } else if (chromeBook) {
         result = {
           name: 'Chrome'
@@ -82,14 +82,14 @@
         , chrome: t
         , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       } else if (/chrome.+? edge/i.test(ua)) {
         result = {
           name: 'Microsoft Edge'
         , msedge: t
         , version: edgeVersion
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (/chrome|crios|crmo/i.test(ua)) {
         result = {
@@ -97,7 +97,7 @@
         , chrome: t
         , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (iosdevice) {
         result = {
@@ -106,66 +106,66 @@
         // WTF: version is not part of user agent in web apps
         if (versionIdentifier) {
           result.version = versionIdentifier
-        }
-        console.log(result.name);
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/sailfish/i.test(ua)) {
         result = {
           name: 'Sailfish'
-        , sailfish: t
-        , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
-        }
-        console.log(result.name);
+          , sailfish: t
+          , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/seamonkey\//i.test(ua)) {
         result = {
           name: 'SeaMonkey'
-        , seamonkey: t
-        , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
-        }
-        console.log(result.name);
+          , seamonkey: t
+          , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/firefox|iceweasel/i.test(ua)) {
         result = {
           name: 'Firefox'
-        , firefox: t
-        , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
-        }
+          , firefox: t
+          , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+        };
         if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
           result.firefoxos = t
-        }
-        console.log(result.name);
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/silk/i.test(ua)) {
-        result =  {
+        result = {
           name: 'Amazon Silk'
-        , silk: t
-        , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-        }
-        console.log(result.name);
+          , silk: t
+          , version: getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (android) {
         result = {
           name: 'Android'
-        , version: versionIdentifier
-        }
-        console.log(result.name);
+          , version: versionIdentifier
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/phantom/i.test(ua)) {
         result = {
           name: 'PhantomJS'
-        , phantom: t
-        , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
-        }
-        console.log(result.name);
+          , phantom: t
+          , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
         result = {
           name: 'BlackBerry'
-        , blackberry: t
-        , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
-        }
-        console.log(result.name);
+          , blackberry: t
+          , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
+        };
+        console.log("Browser Name : ", result.name);
       }
       else if (/(web|hpw)os/i.test(ua)) {
         result = {
@@ -173,8 +173,8 @@
         , webos: t
         , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
         };
+        console.log("Browser Name : ", result.name);
         /touchpad\//i.test(ua) && (result.touchpad = t)
-        console.log(result.name);
       }
       else if (/bada/i.test(ua)) {
         result = {
@@ -182,7 +182,7 @@
         , bada: t
         , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
         };
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (/tizen/i.test(ua)) {
         result = {
@@ -190,7 +190,7 @@
         , tizen: t
         , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
         };
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else if (/safari/i.test(ua)) {
         result = {
@@ -198,16 +198,15 @@
         , safari: t
         , version: versionIdentifier
         }
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
       }
       else {
         result = {
           name: getFirstMatch(/^(.*)\/(.*) /),
           version: getSecondMatch(/^(.*)\/(.*) /)
         };
-        console.log(result.name);
+        console.log("Browser Name : ", result.name);
      }
-  
       // set webkit or gecko flag for browsers based on these engines
       if (!result.msedge && /(apple)?webkit/i.test(ua)) {
         result.name = result.name || "Webkit"
