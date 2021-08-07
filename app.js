@@ -183,48 +183,50 @@ app.post('/output.html', (request, response) => {
     console.log(product);
     const template = `
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <title>output.html</title>
-      <link href="./css/output.css" type="text/css" rel="stylesheet" />
-      <script src="./js/output.js"></script>
-    </head>
-    <body>
-      <div class="container">
-        <div class="main">
-          <div class="p_name">
-            <h1 class="name"> ${product.name} </h1>
-          </div>
-          <div class="p_img">
-            <img class="img" src="./images/test.jpg"/>
-          </div>
-          <button class="basic_btn"> 기본정보 </button>
-          <div class="p_basic">
-            <h1 class="capacity_and_price"> ${product.capacity}g / ${product.price}원 </h1>
-          </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>output.html</title>
+  <link href="./css/output.css" type="text/css" rel="stylesheet" />
+  <script src="./js/output.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="main">
+      <div class="p_name">
+        <h1 class="name"> ${product.name} </h1>
+      </div>
+      <div class="p_img">
+        <img class="img" src="./images/test.jpg"/>
+      </div>
+      <button class="basic_btn"> 기본정보 </button>
+      <div class="p_basic">
+        <h1 class="capacity_and_price"> ${product.capacity}g / ${product.price}원 </h1>
+      </div>
+    </div>
+    <div class="other">
+      <button class="detail_btn"> 상세정보 </button>
+      <div class="p_detail">
+        <div class="first">
+          <h1 class="carbohydarate"> 탄수화물 <br> ${product.carbohydrate}</h1>
+          <h1 class="protein"> 단백질 <br>  ${product.protein}</h1>
+          <h1 class="fat"> 지방 <br>  ${product.fat}</h1>
         </div>
-        <div class="other">
-          <button class="detail_btn"> 상세정보 </button>
-          <div class="first">
-            <h1 class="carbohydarate"> 탄수화물 <br> ${product.carbohydrate}</h1>
-            <h1 class="protein"> 단백질 <br>  ${product.protein}</h1>
-            <h1 class="fat"> 지방 <br>  ${product.fat}</h1>
-          </div>
-          <div class="second">
-            <h1 class="kacl"> 칼로리 <br>  ${product.kcal}</h1>
-            <h1 class="salt"> 나트륨 <br>  ${product.salt}</h1>
-            <h1 class="sugar"> 당 <br>  ${product.sugar}</h1>
-          </div>
-          <div class="third">
-            <h1 class="calcium"> 칼슘 <br>  ${product.calcium}</h1>
-            <h1 class="potassium"> 칼륨 <br>  ${product.potassium}</h1>
-            <h1 class="cholesterol"> 콜레스테롤 <br>  ${product.cholesterol}</h1>
-          </div>
+        <div class="second">
+          <h1 class="kacl"> 칼로리 <br>  ${product.kcal}</h1>
+          <h1 class="salt"> 나트륨 <br>  ${product.salt}</h1>
+          <h1 class="sugar"> 당 <br>  ${product.sugar}</h1>
+        </div>
+        <div class="third">
+          <h1 class="calcium"> 칼슘 <br>  ${product.calcium}</h1>
+          <h1 class="potassium"> 칼륨 <br>  ${product.potassium}</h1>
+          <h1 class="cholesterol"> 콜레스테롤 <br>  ${product.cholesterol}</h1>
         </div>
       </div>
-    </body>
-    </html>
+    </div>
+  </div>
+</body>
+</html>
   `;
     
   response.send(template);

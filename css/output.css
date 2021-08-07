@@ -69,6 +69,7 @@ button {
 
 .hide {
   opacity: 0;
+  margin-bottom: 0;
 }
 
 .visible {
