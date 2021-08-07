@@ -1,7 +1,9 @@
+const { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } = require('constants');
 const express = require('express');
 const app = express();
 const fs = require('fs');
 const port = 52273
+const bodyParser = require('body-parser');
 
 var mysql = require("mysql");
 //var result = require('main.js');
@@ -17,15 +19,9 @@ connection.connect();
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/images'));
 app.use(express.static(__dirname + '/js'));
-
-connection.query('SELECT * FROM new_foods WHERE name="도라야끼통단팥"', function (error, results, fields) {
-  if (error) throw error;
-  const property = ['name', 'manufac', 'price', 'url', 'classify', 'capacity', 'kcal', 'protein', 'fat', 'carbohydrate', 'sugar', 'calcium', 'potassium', 'salt', 'cholesterol']
-  product_list = {};
-  for (var i = 0; i < property.length; i++) {
-      product_list[property[i]] = results[0][Object.keys(results[0])[i + 1]];
-  }
-});
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+product_list = {};
 
 app.get('/', (request, response) => {
   url = '/start_page.html';
@@ -35,7 +31,6 @@ app.get('/', (request, response) => {
 app.get('/css/start_page.css', (request, response) => {
   response.sendFile(__dirname + '/css/' + 'start_page.css');
 }); 
-
 
 app.get('/start_page.html', (request, response) => {
   response.sendFile(__dirname + '/start_page.html');
@@ -161,43 +156,84 @@ app.get('/css/output.css', (request, response) => {
   response.sendFile(__dirname + '/css/' + 'output.css');
 });
 
-app.get('/output.html', (request, response) => {
-  const product = product_list;
-  const template = `
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>output.html</title>
-    <link href="./css/output.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="name"> ${product.name} </h1>
-      <img class="img" src="./images/test.jpg"/>
-      <h1 class="price"> ${product.price}원 </h1>
-      <h1 class="capacity"> ${product.capacity}g </h1>
-   
-      <h1 class="carbohydarate"> 탄수화물 <br> ${product.carbohydrate}</h1>
-      <h1> 단백질 <br>  ${product.protein}</h1>
-      <h1> 지방 <br>  ${product.fat}</h1>
+app.get('/middle.html', (request, response) => {
+  response.sendFile(__dirname + '/middle.html');
+})
 
-      <h1> 칼로리 <br>  ${product.kcal}kcal</h1>
-      <h1> 나트륨 <br>  ${product.salt}</h1>
-      <h1> 당 <br>  ${product.sugar}</h1>
-
-      <h1> 칼슘 <br>  ${product.calcium}</h1>
-      <h1> 칼륨 <br>  ${product.potassium}</h1>
-      <h1> 콜레스테롤 <br>  ${product.cholesterol}</h1>
-     
-    </div>
-  </body>
-  </html>
-`;
-    
-  response.send(template);
+app.get('/css/middle.css', (request, response) => {
+  response.sendFile(__dirname + '/css/' + 'middle.css');
 });
 
+app.get('/js/middle.js', (request, response) => {
+  response.sendFile(__dirname + '/js/' + 'middle.js');
+})
+
+app.post('/output.html', (request, response) => {
+  const sql = 'SELECT * FROM new_foods WHERE url="' + request.body.result + '"'
+  connection.query(sql, function (error, results, fields) {
+    if (error) throw error;
+    const property = ['name', 'manufac', 'price', 'url', 'classify', 'capacity', 'kcal', 'protein', 'fat', 'carbohydrate', 'sugar', 'calcium', 'potassium', 'salt', 'cholesterol']
+    
+    for (var i = 0; i < property.length; i++) {
+        product_list[property[i]] = results[0][Object.keys(results[0])[i + 1]];
+    }
+    console.log(sql);
+    console.log(request.body.result);
+    const product = product_list;
+    console.log(product);
+    const template = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>output.html</title>
+      <link href="./css/output.css" type="text/css" rel="stylesheet" />
+      <script src="./js/output.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="main">
+          <div class="p_name">
+            <h1 class="name"> ${product.name} </h1>
+          </div>
+          <div class="p_img">
+            <img class="img" src="./images/test.jpg"/>
+          </div>
+          <button class="basic_btn"> 기본정보 </button>
+          <div class="p_basic">
+            <h1 class="capacity_and_price"> ${product.capacity}g / ${product.price}원 </h1>
+          </div>
+        </div>
+        <div class="other">
+          <button class="detail_btn"> 상세정보 </button>
+          <div class="first">
+            <h1 class="carbohydarate"> 탄수화물 <br> ${product.carbohydrate}</h1>
+            <h1 class="protein"> 단백질 <br>  ${product.protein}</h1>
+            <h1 class="fat"> 지방 <br>  ${product.fat}</h1>
+          </div>
+          <div class="second">
+            <h1 class="kacl"> 칼로리 <br>  ${product.kcal}</h1>
+            <h1 class="salt"> 나트륨 <br>  ${product.salt}</h1>
+            <h1 class="sugar"> 당 <br>  ${product.sugar}</h1>
+          </div>
+          <div class="third">
+            <h1 class="calcium"> 칼슘 <br>  ${product.calcium}</h1>
+            <h1 class="potassium"> 칼륨 <br>  ${product.potassium}</h1>
+            <h1 class="cholesterol"> 콜레스테롤 <br>  ${product.cholesterol}</h1>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+    
+  response.send(template);
+  });
+});
+
+app.post('/output.html', (request, response) => {
+  console.log(request.body);
+});
 
 app.get('/js/manifest.json', (request, response) => {
   response.sendFile(__dirname + '/js/' + 'manifest.json');
@@ -209,6 +245,18 @@ app.get('/qrcode.html', (request, response) => {
 
 app.get('/js/output.js', (request, response) => {
   response.sendFile(__dirname + '/js/' + 'output.js');
+});
+
+app.post('/css/start_page.css', (request, response) => {
+  response.sendFile(__dirname + '/css/' + 'start_page.css');
+}); 
+
+app.post('/start_page.html', (request, response) => {
+  response.sendFile(__dirname + '/start_page.html');
+});
+
+app.post('/js/start_page.js', (request, response) => {
+  response.sendFile(__dirname + '/js/' + 'start_page.js');
 });
 
 app.listen(port, () => {
