@@ -45,8 +45,17 @@ form {
 
 .info  {
   font-size: 4.5em;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   color: #4606d1;
+}
+
+input[type=submit] {-webkit-appearance:none;}
+
+
+.click {
+  transition: ease-in-out 0.4s !important; 
+  background-color: black !important;
+  color: white !important;
 }
 
 #submit {
@@ -73,3 +82,4 @@ form {
   background-color: #4606d1;
   color: white;
 }
+
