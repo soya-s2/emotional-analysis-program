@@ -58,36 +58,35 @@ window.onload = function () {
 
 /*실시간 video snapshot & qrcode판단*/
 function findQR() {
-
+    var next = false;
+    var next_cnt = 0;
     var video = document.getElementById("video-preview");
     var qrCanvasElement = document.getElementById("qr-canvas");
     var qrCanvas = qrCanvasElement.getContext("2d");
     var width, height;
-
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         qrCanvasElement.height = video.videoHeight;
         qrCanvasElement.width = video.videoWidth;
         qrCanvas.drawImage(video, 0, 0, qrCanvasElement.width, qrCanvasElement.height);
         try {
-            var result = qrcode.decode();
-            var check = confirm("제품 정보 보기 페이지로 이동하겠습니까?");
-            
-            if (check) {
+            next_cnt++;
+            next = true;
+            if (next && next_cnt === 1) {
+                result = qrcode.decode();
                 // query(쿼리문, 콜백함수)
-                console.log("Agree to another page");
-                window.location.href = './output.html';
+                window.location.href = './middle.html';
                 console.log("값 : " + result);
                 console.log("타입 : " + typeof (result));
-                localStorage.setItem("QR 코드 결과", result);
-            } else {
-                console.log("Disagree to move another page");
+                localStorage.setItem("QR_result", result);
             }
+           
         } catch (e) {
             /* 인식 못한 경우 */
         }
     }
     /*재귀 호출*/
     stop = setTimeout(findQR, 100);
+    
 }
 
 /*손전등 버튼 선택시 실행*/

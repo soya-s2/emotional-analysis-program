@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <title>output.html</title>
       <link href="./css/output.css" type="text/css" rel="stylesheet" />
+      <link href="./css/danger.css" type="text/css" rel="stylesheet" />
       <script src="./js/output.js"></script>
       <script src="./js/nutrient.js"></script>
     </head>
@@ -15,27 +16,33 @@
           </div>
           <div class="p_img">
             <img class="img" src="./images/test.jpg"/>
-          </div>
-          <button class="basic_btn"> 기본정보 </button>
+          </div> 
+          <button class="basic_btn"> 기본정보 </button> 
           <div class="p_basic">
             <h1 class="capacity_and_price"> ${product.capacity}g / ${product.price}원 </h1>
           </div>
         </div>
         <div class="other">
-          <button class="detail_btn"> 상세정보 </button>
+          <button class="detail_btn"> 상세정보 </button> <img class="mouse" src="./images/click.png"/>
             <div class="p_detail grid_container">
-              <h1 class="carbohydarate item"> 탄수화물 <p> ${product.carbohydrate}</h1>
-              <h1 class="protein item"> 단백질 <p>  ${product.protein}</h1>
-              <h1 class="fat item"> 지방 <p>  ${product.fat}</h1>
+              <h1 class="carbohydarate item"> 탄수화물 <img class="danger" src="./images/danger.png"> <p id="1"> <br><br>${product.carbohydrate}</h1>
+              <h1 class="protein item"> 단백질 <img class="danger" src="./images/danger.png"> <p id="2"> <br><br> ${product.protein}</h1>
+              <h1 class="fat item"> 지방 <img class="danger" src="./images/danger.png"> <p id="3"> <br><br>${product.fat}</h1>
     
-              <h1 class="kcal item"> 칼로리 <p>  ${product.kcal}</p></h1>
-              <h1 class="salt item"> 나트륨 <p>  ${product.salt}</h1>
-              <h1 class="sugar item"> 당 <p>  ${product.sugar}</h1>
+              <h1 class="kcal item"> 칼로리 <img class="danger" src="./images/danger.png"> <p id="4"> <br><br> ${product.kcal}</p></h1>
+              <h1 class="salt item"> 나트륨 <img class="danger" src="./images/danger.png"> <p id="5">  <br><br>${product.salt}</h1>
+              <h1 class="sugar item"> 당 <img class="danger" src="./images/danger.png"> <p id="6"> <br><br> ${product.sugar}</h1>
     
-              <h1 class="calcium item"> 칼슘 <p>  ${product.calcium}</h1>
-              <h1 class="potassium item"> 칼륨 <p> ${product.potassium}</h1>
-              <h1 class="cholesterol item"> 콜레스테롤 <p> ${product.cholesterol}</h1>
+              <h1 class="calcium item"> 칼슘 <img class="danger" src="./images/danger.png"> <p id="7"> <br><br> ${product.calcium}</h1>
+              <h1 class="potassium item"> 칼륨 <img class="danger" src="./images/danger.png"> <p id="8"> <br><br>${product.potassium}</h1>
+              <h1 class="cholesterol item"> 콜레스테롤 <img class="danger" src="./images/danger.png"> <p id="9"> <br><br>${product.cholesterol}</h1>
             </div>
+          </div>
+          <div class="ann">
+            20대 성인을 기준으로 일일 권장량의
+            60% 이상의 영양소를 포함하는 경우 적색(위험), 
+            40% 이상은 황색(경고), 
+            그 외에는 녹색(안전)으로 표시됩니다.
           </div>
         </div>
       </div>

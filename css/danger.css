@@ -1,0 +1,21 @@
+.item {
+  position: relative;
+}
+
+.danger {
+  opacity: 0;
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  bottom: -0.5px;
+  right: -0.6px;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.mouse {
+  opacity: 0;
+  transition:cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
