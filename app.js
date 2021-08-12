@@ -182,10 +182,10 @@ app.get('/images/click.png', (request, response) => {
 
 
 app.post('/output.html', (request, response) => {
-  const sql = 'SELECT * FROM new_foods WHERE url="' + request.body.result + '"'
+  const sql = 'SELECT * FROM new_foods WHERE product_num="' + request.body.result + '"'
   connection.query(sql, function (error, results, fields) {
     if (error) throw error;
-    const property = ['name', 'manufac', 'price', 'url', 'classify', 'capacity', 'kcal', 'protein', 'fat', 'carbohydrate', 'sugar', 'calcium', 'potassium', 'salt', 'cholesterol']
+    const property = ['name', 'product_num', 'manufac', 'price', 'url', 'classify', 'capacity', 'kcal', 'protein', 'fat', 'carbohydrate', 'sugar', 'calcium', 'potassium', 'salt', 'cholesterol']
     
     for (var i = 0; i < property.length; i++) {
         product_list[property[i]] = results[0][Object.keys(results[0])[i + 1]];
