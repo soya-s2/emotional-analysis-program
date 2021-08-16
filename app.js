@@ -1,4 +1,3 @@
-const { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } = require("constants");
 const express = require("express");
 const app = express();
 const fs = require("fs");
@@ -6,14 +5,13 @@ const port = 52273;
 const bodyParser = require("body-parser");
 
 var mysql = require("mysql");
-//var result = require('main.js');
 var connection = mysql.createConnection({
   host: "203.232.193.161",
-  user: "user1", //계정
-  password: "irlab12!@", //DB비밀번호
+  user: "user1", // 계정
+  password: "irlab12!@", // DB비밀번호
   database: "test",
 });
-//console.log(result);
+
 connection.connect();
 
 app.use(express.static(__dirname + "/css"));
@@ -21,31 +19,63 @@ app.use(express.static(__dirname + "/images"));
 app.use(express.static(__dirname + "/js"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 product_list = {};
 
+/* --------------------------- HTML --------------------------- */
 app.get("/", (request, response) => {
   url = "/start_page.html";
   response.end(fs.readFileSync(__dirname + url));
-});
-
-app.get("/css/start_page.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "start_page.css");
 });
 
 app.get("/start_page.html", (request, response) => {
   response.sendFile(__dirname + "/start_page.html");
 });
 
+app.post("/start_page.html", (request, response) => {
+  response.sendFile(__dirname + "/start_page.html");
+});
+
+app.get("/qrcode.html", (request, response) => {
+  response.sendFile(__dirname + "/qrcode.html");
+});
+
+app.get("/middle.html", (request, response) => {
+  response.sendFile(__dirname + "/middle.html");
+});
+
+/* --------------------------- CSS ---------------------------- */
+app.get("/css/start_page.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "start_page.css");
+});
+
 app.get("/css/qrcode.css", (request, response) => {
   response.sendFile(__dirname + "/css/" + "qrcode.css");
 });
 
-app.get("/images/lab.png", (request, response) => {
-  response.sendFile(__dirname + "/images/" + "lab.png");
+app.get("/css/output.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "output.css");
 });
 
+app.post("/css/start_page.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "start_page.css");
+});
+
+app.get("/css/middle.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "middle.css");
+});
+
+app.get("/css/danger.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "danger.css");
+});
+
+/* --------------------------- IMAGE -------------------------- */
 app.get("/images/flash-off.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "flash-off.png");
+});
+
+app.get("/images/lab.png", (request, response) => {
+  response.sendFile(__dirname + "/images/" + "lab.png");
 });
 
 app.get("/images/flash.png", (request, response) => {
@@ -68,6 +98,15 @@ app.get("/images/test.jpg", (request, response) => {
   response.sendFile(__dirname + "/images/" + "test.jpg");
 });
 
+app.get("/images/danger.png", (request, response) => {
+  response.sendFile(__dirname + "/images/" + "danger.png");
+});
+
+app.get("/images/click.png", (request, response) => {
+  response.sendFile(__dirname + "/images/" + "click.png");
+});
+
+/* ---------------------------- JS ---------------------------- */
 app.get("/js/start_page.js", (request, response) => {
   response.sendFile(__dirname + "/js/" + "start_page.js");
 });
@@ -152,34 +191,23 @@ app.get("/js/version.js", (request, response) => {
   response.sendFile(__dirname + "/js/" + "version.js");
 });
 
-app.get("/css/output.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "output.css");
+app.get("/js/output.js", (request, response) => {
+  response.sendFile(__dirname + "/js/" + "output.js");
 });
 
-app.get("/middle.html", (request, response) => {
-  response.sendFile(__dirname + "/middle.html");
-});
-
-app.get("/css/middle.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "middle.css");
+app.post("/js/start_page.js", (request, response) => {
+  response.sendFile(__dirname + "/js/" + "start_page.js");
 });
 
 app.get("/js/middle.js", (request, response) => {
   response.sendFile(__dirname + "/js/" + "middle.js");
 });
 
-app.get("/css/danger.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "danger.css");
+app.get("/js/manifest.json", (request, response) => {
+  response.sendFile(__dirname + "/js/" + "manifest.json");
 });
 
-app.get("/images/danger.png", (request, response) => {
-  response.sendFile(__dirname + "/images/" + "danger.png");
-});
-
-app.get("/images/click.png", (request, response) => {
-  response.sendFile(__dirname + "/images/" + "click.png");
-});
-
+/* --------------------------- MAIN --------------------------- */
 app.post("/output.html", (request, response) => {
   const sql =
     'SELECT * FROM new_foods WHERE product_num="' + request.body.result + '"';
@@ -259,7 +287,6 @@ app.post("/output.html", (request, response) => {
     </body>
     </html>
   `;
-
     response.send(template);
   });
 });
@@ -269,30 +296,6 @@ app.post('/output.html', (request, response) => {
   console.log(request.body);
 });
 */
-
-app.get("/js/manifest.json", (request, response) => {
-  response.sendFile(__dirname + "/js/" + "manifest.json");
-});
-
-app.get("/qrcode.html", (request, response) => {
-  response.sendFile(__dirname + "/qrcode.html");
-});
-
-app.get("/js/output.js", (request, response) => {
-  response.sendFile(__dirname + "/js/" + "output.js");
-});
-
-app.post("/css/start_page.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "start_page.css");
-});
-
-app.post("/start_page.html", (request, response) => {
-  response.sendFile(__dirname + "/start_page.html");
-});
-
-app.post("/js/start_page.js", (request, response) => {
-  response.sendFile(__dirname + "/js/" + "start_page.js");
-});
 
 app.listen(port, () => {
   console.log("서버 통신 중");
