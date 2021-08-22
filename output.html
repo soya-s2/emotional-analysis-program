@@ -6,7 +6,6 @@
       <link href="./css/output.css" type="text/css" rel="stylesheet" />
       <link href="./css/danger.css" type="text/css" rel="stylesheet" />
       <script src="./js/output.js"></script>
-      <script src="./js/nutrient.js"></script>
     </head>
     <body>
       <div class="container">
@@ -15,7 +14,7 @@
             <h1 class="name"> ${product.name}. </h1>
           </div>
           <div class="p_img">
-            <img class="img" src="./images/test.jpg"/>
+            <img class="img" src="${product.img}"/>
           </div> 
           <button class="basic_btn"> 기본정보 </button> 
           <div class="p_basic">
@@ -38,11 +37,11 @@
               <h1 class="cholesterol item"> 콜레스테롤 <img class="danger" src="./images/danger.png"> <p id="9"> <br><br>${product.cholesterol}</h1>
             </div>
           </div>
-          <div class="ann">
-            20대 성인을 기준으로 일일 권장량의
-            60% 이상의 영양소를 포함하는 경우 적색(위험), 
-            40% 이상은 황색(경고), 
-            그 외에는 녹색(안전)으로 표시됩니다.
+          <div class="ann_container">
+            ※ 20대 성인을 기준으로 일일 권장량의 <br>
+            60% 이상의 영양소를 포함하는 경우 <p class="ann" style="color: #bd0d00">적색(위험)</p>,  <br>
+            40% 이상은 <p class="ann" style="color: #e6c715">황색(경고)</p>, <br>
+            그 외에는 <p class="ann" style="color: #01590b">녹색(안전)</p>으로 표시됩니다.
           </div>
         </div>
       </div>

@@ -210,7 +210,7 @@ app.get("/js/manifest.json", (request, response) => {
 /* --------------------------- MAIN --------------------------- */
 app.post("/output.html", (request, response) => {
   const sql =
-    'SELECT * FROM new_foods WHERE product_num="' + request.body.result + '"';
+    'SELECT * FROM foods WHERE product_num="' + request.body.result + '"';
   connection.query(sql, function (error, results, fields) {
     if (error) throw error;
     const property = [
@@ -219,6 +219,7 @@ app.post("/output.html", (request, response) => {
       "name",
       "manufac",
       "price",
+      "img",
       "url",
       "classify",
       "capacity",
@@ -231,11 +232,13 @@ app.post("/output.html", (request, response) => {
       "potassium",
       "salt",
       "cholesterol",
+      "saturated_fat",
     ];
 
     for (var i = 0; i < property.length; i++) {
       product_list[property[i]] = results[0][Object.keys(results[0])[i]];
     }
+
     const product = product_list;
     const template = `<!DOCTYPE html>
     <html lang="en">
@@ -253,7 +256,7 @@ app.post("/output.html", (request, response) => {
             <h1 class="name"> ${product.name}. </h1>
           </div>
           <div class="p_img">
-            <img class="img" src="./images/test.jpg"/>
+            <img class="img" src="${product.img}"/>
           </div> 
           <button class="basic_btn"> 기본정보 </button> 
           <div class="p_basic">

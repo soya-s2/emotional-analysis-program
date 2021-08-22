@@ -1,43 +1,46 @@
 @font-face {
-  font-family: 'RixYeoljeongdo_Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+  font-family: "RixYeoljeongdo_Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff")
+    format("woff");
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NEXON Lv1 Gothic OTF';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'paybooc-Medium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+  font-family: "paybooc-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NEXON Lv1 Gothic OTF Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+  font-family: "NEXON Lv1 Gothic OTF Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-
-
 * {
   font-weight: 100 !important;
-  font-family: 'RixYeoljeongdo_Regular', cursive;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-family: "RixYeoljeongdo_Regular", cursive;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -46,7 +49,7 @@ body {
   height: 100vh;
   text-align: center;
   position: relative;
-  background-color: rgb(245, 245,245);
+  background-color: rgb(245, 245, 245);
   /*
   background: linear-gradient(to right bottom, #d0ffcb, #2efff8);
   background-size: contain;
@@ -77,7 +80,7 @@ h1 {
 .capacity_and_price {
   font-size: 3.5em;
   letter-spacing: 0.03em;
-  font-family: 'NEXON Lv1 Gothic OTF Bold';
+  font-family: "NEXON Lv1 Gothic OTF Bold";
   color: black;
 }
 
@@ -94,28 +97,30 @@ button {
   background-color: black;
 }
 
-
 .other {
   padding-bottom: 10vh;
 }
-
 
 .p_img {
   margin-top: 7vh;
   margin-bottom: 7vh;
 }
 
+.p_img img {
+  width: 75%;
+  height: 75%;
+}
+
 .basic_btn {
   margin-top: 1em;
-  font-family:  'NEXON Lv1 Gothic OTF Bold';
+  font-family: "NEXON Lv1 Gothic OTF Bold";
   transition: "all ease 0.3s";
 }
 
 .detail_btn {
-  font-family:  'NEXON Lv1 Gothic OTF Bold';
+  font-family: "NEXON Lv1 Gothic OTF Bold";
   margin-top: 3em;
   margin-bottom: 1.5em;
-
 }
 
 .p_name {
@@ -138,7 +143,6 @@ button {
   transition: all 0.6s ease-in-out !important;
 }
 
-
 .grid_container {
   position: relative;
   display: grid;
@@ -149,27 +153,45 @@ button {
   row-gap: 3%;
   column-gap: 3%;
   grid-template-areas:
-		"carbohydarate protein fat"
-		"   kcal    salt   sugar   "
-		"calcium potassium cholesterol";
+    "carbohydarate protein fat"
+    "   kcal    salt   sugar   "
+    "calcium potassium cholesterol";
 }
 
-.item:nth-child(1) { grid-area: carbohydarate; }
-.item:nth-child(2) { grid-area: protein; }
-.item:nth-child(3) { grid-area: fat; }
+.item:nth-child(1) {
+  grid-area: carbohydarate;
+}
+.item:nth-child(2) {
+  grid-area: protein;
+}
+.item:nth-child(3) {
+  grid-area: fat;
+}
 
-.item:nth-child(4) { grid-area: kcal; }
-.item:nth-child(5) { grid-area: salt; }
-.item:nth-child(6) { grid-area: sugar; }
+.item:nth-child(4) {
+  grid-area: kcal;
+}
+.item:nth-child(5) {
+  grid-area: salt;
+}
+.item:nth-child(6) {
+  grid-area: sugar;
+}
 
-.item:nth-child(7) { grid-area: calcium; }
-.item:nth-child(8) { grid-area: potassium; }
-.item:nth-child(9) { grid-area: cholesterol; }
+.item:nth-child(7) {
+  grid-area: calcium;
+}
+.item:nth-child(8) {
+  grid-area: potassium;
+}
+.item:nth-child(9) {
+  grid-area: cholesterol;
+}
 
 .item {
   letter-spacing: 0.04em;
   /* font-family: 'NEXON Lv1 Gothic OTF'; */
-  font-family: 'paybooc-Medium';
+  font-family: "paybooc-Medium";
   background-color: black;
   color: white;
   position: absolute;
@@ -199,8 +221,8 @@ button {
   text-align: center;
   margin: 0;
   padding: 0;
-  /* font-family: 'NEXON Lv1 Gothic OTF' */;
-  font-family: 'paybooc-Medium';
+  /* font-family: 'NEXON Lv1 Gothic OTF' */
+  font-family: "paybooc-Medium";
 }
 
 .trans {
@@ -220,13 +242,12 @@ button {
   width: 100%;
   height: 40%;
   font-size: 2em;
-  font-family: 'NEXON Lv1 Gothic OTF';
+  font-family: "NEXON Lv1 Gothic OTF";
 }
 
 .ann_container p {
   display: inline;
   white-space: nowrap;
   font-size: 1em;
-  font-family: 'NEXON Lv1 Gothic OTF';
+  font-family: "NEXON Lv1 Gothic OTF";
 }
-
