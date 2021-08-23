@@ -289,12 +289,6 @@ app.post("/output.html", (request, response) => {
             40% 이상은 <p class="ann" style="color: #e6c715">황색(경고)</p>, <br>
             그 외에는 <p class="ann" style="color: #01590b">녹색(안전)</p>으로 표시됩니다.
           </div>
-          <div class="review">
-            <button class="review_btn">상세리뷰</button>
-              <div class="p_review">
-                
-              </div>
-          </div>
         </div>
       </div>
     </body>

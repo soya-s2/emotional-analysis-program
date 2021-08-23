@@ -40,25 +40,15 @@ var temp = [];
 var isTouch = false;
 var basic_cnt = 0;
 var detail_cnt = 0;
-var review_cnt = 0;
 
 window.onload = function () {
   window.scrollTo(0, 0);
   const body = document.querySelector("body");
-
   const main = document.querySelector(".main");
-
-  const basic = document.querySelector(".basic_btn");
-  const p_basic = document.querySelector(".p_basic");
-
   const detail = document.querySelector(".detail_btn");
+  const p_basic = document.querySelector(".p_basic");
+  const basic = document.querySelector(".basic_btn");
   const p_detail = document.querySelector(".p_detail");
-
-  const review = document.querySelector(".review_btn");
-  const p_review = document.querySelector(".p_review");
-
-  const ann_container = document.querySelector(".ann_container");
-
   const danger_visible = document.getElementsByClassName("danger");
   const click_visible = document.querySelector(".mouse");
   data = document.getElementsByTagName("p");
@@ -71,8 +61,6 @@ window.onload = function () {
     main.style.opacity = 1;
     detail.style.opacity = 1;
     p_detail.style.opacity = 1;
-    ann_container.style.opacity = 1;
-    review.style.opacity = 1;
     body.removeEventListener("click", touch);
   };
 
@@ -96,20 +84,19 @@ window.onload = function () {
             setTimeout(function () {
               setTimeout(function () {
                 setTimeout(function () {
-                  parent.classList.add(TRANS_CLASS);
                   parent.style.backgroundColor = "#bd0d00";
-                }, 800);
+                }, 500);
                 parent.classList.remove(TRANS_CLASS);
                 parent.style.backgroundColor = "black";
-              }, 800);
+              }, 500);
               if (!hasTransClass) {
                 parent.classList.add(TRANS_CLASS);
                 parent.style.backgroundColor = "#bd0d00";
               }
-            }, 800);
+            }, 500);
             parent.classList.remove(TRANS_CLASS);
             parent.style.backgroundColor = "black";
-          }, 3000);
+          }, 500);
         } else if (data[i].innerText > recommended[i] * warn) {
           parent.style.backgroundColor = "#e6c715";
         } else {
@@ -125,8 +112,6 @@ window.onload = function () {
       main.style.opacity = 0.25;
       detail.style.opacity = 0.25;
       p_detail.style.opacity = 0.25;
-      ann_container.style.opacity = 0.25;
-      review.style.opacity = 0.25;
       click_visible.classList.add("visible");
       click_visible.style.opacity = 1;
       this.setTimeout(function () {
@@ -156,8 +141,6 @@ window.onload = function () {
       main.style.opacity = 1;
       detail.style.opacity = 1;
       p_detail.style.opacity = 1;
-      ann_container.style.opacity = 1;
-      review.style.opacity = 1;
       click_visible.classList.remove("visible");
       click_visible.style.opacity = 0;
     } else if (isTouch === true) {
@@ -197,53 +180,25 @@ window.onload = function () {
     var VISIBLE_CLASS = "visible";
     if (detail_cnt % 2 === 1) {
       p_detail.classList.remove(VISIBLE_CLASS);
-      ann_container.classList.remove(VISIBLE_CLASS);
       const hasHideClass = p_detail.classList.contains(HIDE_CLASS);
       if (!hasHideClass) {
         detail.style.borderRadius = "1em";
         detail.style.transition = "all ease 0.3s";
         p_detail.classList.add(HIDE_CLASS);
-        ann_container.classList.add(HIDE_CLASS);
       }
     } else {
       p_detail.classList.remove(HIDE_CLASS);
-      ann_container.classList.remove(HIDE_CLASS);
       const hasVisibleClass = p_detail.classList.contains(VISIBLE_CLASS);
       if (!hasVisibleClass) {
         detail.style.borderBottomRightRadius = 0;
         detail.style.transition = "all ease 0.3s";
         p_detail.classList.add(VISIBLE_CLASS);
-        ann_container.classList.add(VISIBLE_CLASS);
-      }
-    }
-  };
-
-  var review_click = function () {
-    review_cnt += 1;
-    var HIDE_CLASS = "hide";
-    var VISIBLE_CLASS = "visible";
-    if (review_cnt % 2 === 1) {
-      p_review.classList.remove(VISIBLE_CLASS);
-      const hasHideClass = p_review.classList.contains(HIDE_CLASS);
-      if (!hasHideClass) {
-        review.style.borderRadius = "1em";
-        review.style.transition = "all ease 0.3s";
-        p_review.classList.add(HIDE_CLASS);
-      }
-    } else {
-      p_review.classList.remove(HIDE_CLASS);
-      const hasVisibleClass = p_review.classList.contains(VISIBLE_CLASS);
-      if (!hasVisibleClass) {
-        review.style.borderBottomRightRadius = 0;
-        review.style.transition = "all ease 0.3s";
-        p_review.classList.add(VISIBLE_CLASS);
       }
     }
   };
 
   basic.addEventListener("click", basic_click);
   detail.addEventListener("click", detail_click);
-  review.addEventListener("click", review_click);
 };
 
 var danger_click = function () {
