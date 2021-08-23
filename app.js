@@ -69,6 +69,10 @@ app.get("/css/danger.css", (request, response) => {
   response.sendFile(__dirname + "/css/" + "danger.css");
 });
 
+app.get("/css/division.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "division.css");
+});
+
 /* --------------------------- IMAGE -------------------------- */
 app.get("/images/flash-off.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "flash-off.png");

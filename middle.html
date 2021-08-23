@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>middle.html</title>
     <link type="text/css" rel="stylesheet" href="./css/middle.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/division.css"/>
     <script src="./js/middle.js"></script>
   </head>
   <body>
@@ -11,12 +12,42 @@
       <form action="/output.html" method="post">
         <input type="text" name="result" id="result"/>
         <div class="info">
-          해당 제품에 대한 <br> 정보를 보시겠습니까? <br>
+          아래 리스트에서 <br> 사용자의 정보를 <br> 알맞게 선택해주세요. <br>
         </div>
-        <input type="submit" id="submit" value="예">
-        <button id="reset">아니오</button>
+        <div class="select">
+          <div class="division_txt">구분</div>
+          <select name="division" id="division-select">
+            <option value="infants">영아</option>
+            <option value="child">유아</option>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+            <option value="pregnant">임산부</option>
+            <option value="lactating">수유부</option>
+          </select>
+          <div> &nbsp; </div>
+          <div class="age_txt">연령</div>
+          <select name="age" id="age-select">
+            <option value="0to5">0 - 5개월</option>
+            <option value="6to11">6 - 11개월</option>
+            <option value="1to2">1 - 2세</option>
+            <option value="3to5">3 - 5세</option>
+            <option value="6to8">6 - 8세</option>
+            <option value="9to11">9 - 11세</option>
+            <option value="12to15">12 - 15세</option>
+            <option value="16to19">16 - 19세</option>
+            <option value="19to29">19 - 29세</option>
+            <option value="30to49">30 - 49세</option>
+            <option value="50to64">50 - 64세</option>
+            <option value="65to74">65 - 74세</option>
+            <option value="over75">75세 이상</option>
+          </select>
+        </div>
+        <div class="button">
+          <input type="submit" id="submit" value="확인">
+          <button id="reset">처음으로</button>
+        </div>
       </form>
     </div>
-    
   </body>
   </html>
+  
