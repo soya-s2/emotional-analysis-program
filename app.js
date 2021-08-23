@@ -69,10 +69,6 @@ app.get("/css/danger.css", (request, response) => {
   response.sendFile(__dirname + "/css/" + "danger.css");
 });
 
-app.get("/css/division.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "division.css");
-});
-
 /* --------------------------- IMAGE -------------------------- */
 app.get("/images/flash-off.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "flash-off.png");
@@ -288,6 +284,12 @@ app.post("/output.html", (request, response) => {
             60% 이상의 영양소를 포함하는 경우 <p class="ann" style="color: #bd0d00">적색(위험)</p>,  <br>
             40% 이상은 <p class="ann" style="color: #e6c715">황색(경고)</p>, <br>
             그 외에는 <p class="ann" style="color: #01590b">녹색(안전)</p>으로 표시됩니다.
+          </div>
+          <div class="review">
+            <button class="review_btn">상세리뷰</button>
+              <div class="p_review">
+                
+              </div>
           </div>
         </div>
       </div>

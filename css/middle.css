@@ -1,13 +1,12 @@
 @font-face {
-  font-family: "RixYeoljeongdo_Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff")
-    format("woff");
+  font-family: 'RixYeoljeongdo_Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+  font-weight: lighter;
   font-style: normal;
 }
 
 * {
-  font-family: "RixYeoljeongdo_Regular", cursive;
-  font-weight: 100 !important;
+  font-family: 'RixYeoljeongdo_Regular', cursive;
 }
 
 body {
@@ -30,6 +29,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
+
 form {
   width: 100%;
   border: none;
@@ -43,28 +43,26 @@ form {
   opacity: 0;
 }
 
-.info {
+.info  {
   font-size: 4.5em;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.03em;
   color: #4606d1;
-  margin-bottom: 2em;
 }
 
-input[type="submit"] {
-  -webkit-appearance: none;
-}
+input[type=submit] {-webkit-appearance:none;}
+
 
 .click {
-  transition: ease-in-out 0.4s !important;
+  transition: ease-in-out 0.4s !important; 
   background-color: black !important;
   color: white !important;
 }
 
 #submit {
-  font-weight: 100 !important;
+  font-weight: lighter !important;
   font-size: 4em;
   letter-spacing: 0.05em;
-  margin-top: 2em;
+  margin-top: 1em;
   padding: 0.4em 1em;
   border: none;
   margin-right: 1em;
@@ -74,7 +72,7 @@ input[type="submit"] {
 }
 
 #reset {
-  font-weight: 100 !important;
+  font-weight: lighter !important;
   font-size: 4em;
   letter-spacing: 0.05em;
   margin-top: 1em;
@@ -84,3 +82,4 @@ input[type="submit"] {
   background-color: #4606d1;
   color: white;
 }
+
