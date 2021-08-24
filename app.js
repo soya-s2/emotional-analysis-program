@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   host: "203.232.193.161",
   user: "user1", // 계정
   password: "irlab12!@", // DB비밀번호
-  database: "test",
+  database: "irlab",
 });
 
 connection.connect();
@@ -210,7 +210,7 @@ app.get("/js/manifest.json", (request, response) => {
 /* --------------------------- MAIN --------------------------- */
 app.post("/output.html", (request, response) => {
   const sql =
-    'SELECT * FROM foods WHERE product_num="' + request.body.result + '"';
+    'SELECT * FROM test_foods WHERE product_num="' + request.body.result + '"';
   connection.query(sql, function (error, results, fields) {
     if (error) throw error;
     const property = [
