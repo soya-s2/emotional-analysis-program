@@ -69,6 +69,10 @@ app.get("/css/danger.css", (request, response) => {
   response.sendFile(__dirname + "/css/" + "danger.css");
 });
 
+app.get("/css/imo.css", (request, response) => {
+  response.sendFile(__dirname + "/css/" + "imo.css");
+});
+
 /* --------------------------- IMAGE -------------------------- */
 app.get("/images/flash-off.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "flash-off.png");
@@ -104,6 +108,14 @@ app.get("/images/danger.png", (request, response) => {
 
 app.get("/images/click.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "click.png");
+});
+
+app.get("/images/smile.png", (request, response) => {
+  response.sendFile(__dirname + "/images/" + "smile.png");
+});
+
+app.get("/images/upset.png", (request, response) => {
+  response.sendFile(__dirname + "/images/" + "upset.png");
 });
 
 /* ---------------------------- JS ---------------------------- */
@@ -233,6 +245,8 @@ app.post("/output.html", (request, response) => {
       "salt",
       "cholesterol",
       "saturated_fat",
+      "best_review",
+      "worst_review"
     ];
 
     for (var i = 0; i < property.length; i++) {
@@ -240,6 +254,8 @@ app.post("/output.html", (request, response) => {
     }
 
     const product = product_list;
+
+    /* --------------------------- TEMPLATE --------------------------- */
     const template = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -247,6 +263,7 @@ app.post("/output.html", (request, response) => {
       <title>output.html</title>
       <link href="./css/output.css" type="text/css" rel="stylesheet" />
       <link href="./css/danger.css" type="text/css" rel="stylesheet" />
+      <link href="./css/imo.css" type="text/css" rel="stylesheet" />
       <script src="./js/output.js"></script>
     </head>
     <body>
@@ -286,9 +303,14 @@ app.post("/output.html", (request, response) => {
             그 외에는 <p class="ann" style="color: #01590b">녹색(안전)</p>으로 표시됩니다.
           </div>
           <div class="review">
-            <button class="review_btn">상세리뷰</button>
+            <button class="review_btn">대표리뷰</button>
               <div class="p_review">
-                
+                <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
+                <h2 class="best_review"> ${product.best_review}</h2>
+             
+                <div class="p_worst_review">부정리뷰<img class="imo upset" src="./images/upset.png"></div>
+                <h2 class="worst_review">${product.worst_review}</h2>
+                <br><br>
               </div>
           </div>
         </div>

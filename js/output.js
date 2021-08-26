@@ -40,15 +40,18 @@ window.onload = function () {
     p_detail.style.opacity = 1;
     ann_container.style.opacity = 1;
     review.style.opacity = 1;
+    p_review.style.opacity = 1;
     body.removeEventListener("click", touch);
   };
 
   window.addEventListener("scroll", function (event) {
+    
     var scroll = this.scrollY;
     if (
-      scroll > basic.offsetTop - window.outerHeight / 1.6 &&
-      isTouch === false
-    ) {
+      (scroll > basic.offsetTop - window.outerHeight/2.8) && (scroll < basic.offsetTop + window.outerHeight/1.8) &&
+      (isTouch === false)
+      ) {
+
       for (var i = 0; i < recommended.length; i++) {
         const parent = data[i].parentNode;
         const danger = 0.6;
@@ -94,6 +97,7 @@ window.onload = function () {
       p_detail.style.opacity = 0.25;
       ann_container.style.opacity = 0.25;
       review.style.opacity = 0.25;
+      p_review.style.opacity = 0.25;
       click_visible.classList.add("visible");
       click_visible.style.opacity = 1;
       this.setTimeout(function () {
@@ -105,6 +109,9 @@ window.onload = function () {
               if (isTouch === true) {
                 click_visible.classList.remove("visible");
                 click_visible.style.opacity = 0;
+                click_visible.style.position = "absolute";
+                click_visible.style.top = 0;
+                click_visible.style.left = 0;
               }
             }, 350);
             click_visible.classList.remove("visible");
@@ -117,7 +124,8 @@ window.onload = function () {
         click_visible.style.opacity = 0;
       }, 350);
     } else if (
-      scroll <= basic.offsetTop - window.outerHeight / 1.6 &&
+     ((scroll < basic.offsetTop - window.outerHeight) && (isTouch === false)) ||
+      scroll >= basic.offsetTop + window.outerHeight * 1.6 &&
       isTouch === false
     ) {
       main.style.opacity = 1;
@@ -125,93 +133,18 @@ window.onload = function () {
       p_detail.style.opacity = 1;
       ann_container.style.opacity = 1;
       review.style.opacity = 1;
+      p_review.style.opacity = 1;
       click_visible.classList.remove("visible");
       click_visible.style.opacity = 0;
     } else if (isTouch === true) {
+
     }
-  });
+  
 
   for (var i = 0; i < recommended.length; i++) {
     data[i].addEventListener("click", danger_click);
   }
-
-  var basic_click = function () {
-    basic_cnt += 1;
-    var HIDE_CLASS = "hide";
-    var VISIBLE_CLASS = "visible";
-    if (basic_cnt % 2 === 1) {
-      p_basic.classList.remove(VISIBLE_CLASS);
-      const hasHideClass = p_basic.classList.contains(HIDE_CLASS);
-      if (!hasHideClass) {
-        basic.style.borderRadius = "1em";
-        basic.style.transition = "all ease 0.3s";
-        p_basic.classList.add(HIDE_CLASS);
-      }
-    } else {
-      p_basic.classList.remove(HIDE_CLASS);
-      const hasVisibleClass = p_basic.classList.contains(VISIBLE_CLASS);
-      if (!hasVisibleClass) {
-        basic.style.borderBottomRightRadius = 0;
-        basic.style.transition = "all ease 0.3s";
-        p_basic.classList.add(VISIBLE_CLASS);
-      }
-    }
-  };
-
-  var detail_click = function () {
-    detail_cnt += 1;
-    var HIDE_CLASS = "hide";
-    var VISIBLE_CLASS = "visible";
-    if (detail_cnt % 2 === 1) {
-      p_detail.classList.remove(VISIBLE_CLASS);
-      ann_container.classList.remove(VISIBLE_CLASS);
-      const hasHideClass = p_detail.classList.contains(HIDE_CLASS);
-      if (!hasHideClass) {
-        detail.style.borderRadius = "1em";
-        detail.style.transition = "all ease 0.3s";
-        p_detail.classList.add(HIDE_CLASS);
-        ann_container.classList.add(HIDE_CLASS);
-      }
-    } else {
-      p_detail.classList.remove(HIDE_CLASS);
-      ann_container.classList.remove(HIDE_CLASS);
-      const hasVisibleClass = p_detail.classList.contains(VISIBLE_CLASS);
-      if (!hasVisibleClass) {
-        detail.style.borderBottomRightRadius = 0;
-        detail.style.transition = "all ease 0.3s";
-        p_detail.classList.add(VISIBLE_CLASS);
-        ann_container.classList.add(VISIBLE_CLASS);
-      }
-    }
-  };
-
-  var review_click = function () {
-    review_cnt += 1;
-    var HIDE_CLASS = "hide";
-    var VISIBLE_CLASS = "visible";
-    if (review_cnt % 2 === 1) {
-      p_review.classList.remove(VISIBLE_CLASS);
-      const hasHideClass = p_review.classList.contains(HIDE_CLASS);
-      if (!hasHideClass) {
-        review.style.borderRadius = "1em";
-        review.style.transition = "all ease 0.3s";
-        p_review.classList.add(HIDE_CLASS);
-      }
-    } else {
-      p_review.classList.remove(HIDE_CLASS);
-      const hasVisibleClass = p_review.classList.contains(VISIBLE_CLASS);
-      if (!hasVisibleClass) {
-        review.style.borderBottomRightRadius = 0;
-        review.style.transition = "all ease 0.3s";
-        p_review.classList.add(VISIBLE_CLASS);
-      }
-    }
-  };
-
-  basic.addEventListener("click", basic_click);
-  detail.addEventListener("click", detail_click);
-  review.addEventListener("click", review_click);
-};
+});
 
 var danger_click = function () {
   click_cnt[event.target.id - 1]++;
@@ -244,4 +177,4 @@ var danger_click = function () {
     event.target.parentNode.style.borderRadius = "3em";
     data[event.target.id - 1].parentNode.childNodes[1].style.opacity = 0;
   }
-};
+}};
