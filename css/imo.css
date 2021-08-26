@@ -1,0 +1,24 @@
+.p_best_review {
+    position: relative;
+}
+
+.p_worst_review {
+    position: relative;
+}
+
+.imo {
+    width: 6vw;
+    height: 6vw;
+}
+
+.smile {
+    position: absolute;
+    top: 0%;
+    right: 29%;
+}
+
+.upset {
+    position: absolute;
+    bottom: 1%;
+    right: 29%;
+}
