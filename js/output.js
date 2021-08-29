@@ -8,6 +8,11 @@ var isTouch = false;
 var basic_cnt = 0;
 var detail_cnt = 0;
 var review_cnt = 0;
+const best_review_color = ["#004f05", "#003d0fbd", "#003d0f75", "#003d0f3a", "#003d0f1a"];
+const worst_review_color = ["#7800001c", "#78000052", "#7800008f", "#780000c2", "#730b00"];
+const state = 0.85;
+var best_state = "0%";
+var worst_state = "0%";
 
 window.onload = function () {
   window.scrollTo(0, 0);
@@ -29,7 +34,22 @@ window.onload = function () {
   const danger_visible = document.getElementsByClassName("danger");
   const click_visible = document.querySelector(".mouse");
   data = document.getElementsByTagName("p");
+  const best_review = document.querySelector(".best_review");
+  const worst_review = document.querySelector(".worst_review");
+  
+  const orientation = "to bottom right";
+  let state_per = state * 100;
 
+  state_per = state * 100;
+  best_state = " " + (state_per-7) + "%,";
+  var stop_point = 0;
+  stop_point = (state_per)
+  stop_state = " " + stop_point + "%, ";
+  worst_state = " " + 100 + "%)";
+
+  review.style.backgroundImage = 'linear-gradient('
+    + orientation + ', ' + best_review_color[0] + best_state + "#363000" + stop_state + worst_review_color[4] + worst_state;
+  console.log(review.style.backgroundImage);
   const touch = function (event) {
     isTouch = true;
     click_visible.classList.remove("visible");

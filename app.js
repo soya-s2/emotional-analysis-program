@@ -304,6 +304,7 @@ app.post("/output.html", (request, response) => {
           </div>
           <div class="review">
             <button class="review_btn">대표리뷰</button>
+            <div class="ann_review">※ 위 대표리뷰 라벨의 녹색/적색 비율에 따라 <br/> 긍정/부정 리뷰 비율을 판별할 수 있습니다.</div>
               <div class="p_review">
                 <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
                 <h2 class="best_review"> ${product.best_review}</h2>

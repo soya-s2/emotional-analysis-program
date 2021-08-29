@@ -279,7 +279,8 @@ button {
   height: 80%;
 }
 
-.p_best_review, .p_worst_review {
+.p_best_review,
+.p_worst_review {
   font-size: 3em;
   font-weight: bold;
   font-family: "NEXON Lv1 Gothic OTF Bold";
@@ -294,7 +295,8 @@ button {
   color: #bd0d00;
 }
 
-.best_review, .worst_review {
+.best_review,
+.worst_review {
   font-size: 2em;
   font-family: "NEXON Lv1 Gothic OTF";
   letter-spacing: 0.1em;
@@ -307,5 +309,11 @@ button {
 }
 
 .worst_review {
-  background-color:#bd0d001c;
+  background-color: #bd0d001c;
+}
+
+.ann_review {
+  margin: 0 auto 3em auto;
+  font-size: 2.2em;
+  font-family: "NEXON Lv1 Gothic OTF";
 }
