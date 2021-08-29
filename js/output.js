@@ -8,11 +8,13 @@ var isTouch = false;
 var basic_cnt = 0;
 var detail_cnt = 0;
 var review_cnt = 0;
+const best_review_color = ["#003d0f", "#003d0fbd", "#003d0f75", "#003d0f3a", "#003d0f1a"];
+const worst_review_color = ["#7800001c","#78000052", "#7800008f", "#780000c2", "#780000"];
+const state = 0.45;
 
 window.onload = function () {
   window.scrollTo(0, 0);
   const body = document.querySelector("body");
-
   const main = document.querySelector(".main");
 
   const basic = document.querySelector(".basic_btn");
@@ -29,6 +31,29 @@ window.onload = function () {
   const danger_visible = document.getElementsByClassName("danger");
   const click_visible = document.querySelector(".mouse");
   data = document.getElementsByTagName("p");
+  const best_review = document.querySelector(".best_review");
+  const worst_review = document.querySelector(".worst_review");
+
+  if (state >= 0.8) {
+    best_review.style.backgroundColor = best_review_color[0];
+    worst_review.style.backgroundColor = worst_review_color[0];
+    best_review.style.color = "white";
+  } else if (state >= 0.6) {
+    best_review.style.backgroundColor = best_review_color[1];
+    worst_review.style.backgroundColor = worst_review_color[1];
+    best_review.style.color = "white";
+  } else if (state >= 0.4) {
+    best_review.style.backgroundColor = best_review_color[2];
+    worst_review.style.backgroundColor = worst_review_color[2];
+  } else if (state >= 0.2) {
+    best_review.style.backgroundColor = best_review_color[3];
+    worst_review.style.backgroundColor = worst_review_color[3];
+    worst_review.style.color = "white";
+  } else {
+    best_review.style.backgroundColor = best_review_color[4];
+    worst_review.style.backgroundColor = worst_review_color[4];
+    worst_review.style.color = "white";
+  }
 
   const touch = function (event) {
     isTouch = true;

@@ -133,7 +133,7 @@ button {
 
 .review_btn {
   font-family: "NEXON Lv1 Gothic OTF Bold";
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 
@@ -279,7 +279,8 @@ button {
   height: 80%;
 }
 
-.p_best_review, .p_worst_review {
+.p_best_review,
+.p_worst_review {
   font-size: 3em;
   font-weight: bold;
   font-family: "NEXON Lv1 Gothic OTF Bold";
@@ -294,7 +295,8 @@ button {
   color: #bd0d00;
 }
 
-.best_review, .worst_review {
+.best_review,
+.worst_review {
   font-size: 2em;
   font-family: "NEXON Lv1 Gothic OTF";
   letter-spacing: 0.1em;
@@ -303,9 +305,86 @@ button {
 }
 
 .best_review {
-  background-color: #01590b2a;
+  background-color: #003d0f1a;
 }
 
 .worst_review {
-  background-color:#bd0d001c;
+  background-color: #7800001c;
+}
+
+/* Color-Tip */
+.colorTip {
+  width: 80%;
+  font-size: 3em;
+  border: 1px solid black;
+  border-radius: 2em;
+  padding: 1em;
+  margin: 0 auto 3em auto;
+}
+
+.colorTip td {
+  font-size: 0.5em;
+  font-family: "NEXON Lv1 Gothic OTF";
+}
+
+.colorTip p {
+  margin: 0 auto 3% auto;
+  font-size: 1em;
+  font-family: "NEXON Lv1 Gothic OTF Bold";
+  font-weight: bold;
+}
+
+td {
+  width: 15vw;
+  height: 1%;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+/* positive */
+tr:nth-child(1) td:nth-child(1) {
+  width: 20%;
+  margin-right: 3px;
+}
+
+tr:nth-child(1) td:nth-child(2) {
+  background-color: #003d0f !important;
+}
+tr:nth-child(1) td:nth-child(3) {
+  background-color: #003d0fbd !important;
+}
+tr:nth-child(1) td:nth-child(4) {
+  background-color: #003d0f75 !important;
+}
+tr:nth-child(1) td:nth-child(5) {
+  background-color: #003d0f3a !important;
+}
+tr:nth-child(1) td:nth-child(6) {
+  background-color: #003d0f1a !important;
+}
+
+tr:nth-child(1) td:nth-child(7) {
+  width: 20%;
+  margin-left: 3px;
+}
+
+/* negative */
+tr:nth-child(2) td:nth-child(2) {
+  background-color: #7800001c !important;
+}
+tr:nth-child(2) td:nth-child(3) {
+  background-color: #78000052 !important;
+}
+tr:nth-child(2) td:nth-child(4) {
+  background-color: #7800008f !important;
+}
+tr:nth-child(2) td:nth-child(5) {
+  background-color: #780000c2 !important;
+}
+tr:nth-child(2) td:nth-child(6) {
+  background-color: #780000 !important;
 }

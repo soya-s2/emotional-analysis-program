@@ -304,6 +304,17 @@ app.post("/output.html", (request, response) => {
           </div>
           <div class="review">
             <button class="review_btn">대표리뷰</button>
+            <div class="colorTip">
+              <p>컬러 Tip</p>
+              <table>
+                <tr class="positive">
+                  <td>매우 긍정<br/>(80% 이상)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>긍정<br/>(20% 이하)</td>
+                </tr>
+                <tr class="negative">
+                  <td>부정<br/>(20% 이하)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>매우 부정<br/>(80% 이상)</td>
+                </tr>
+              </table>
+            </div>
               <div class="p_review">
                 <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
                 <h2 class="best_review"> ${product.best_review}</h2>
