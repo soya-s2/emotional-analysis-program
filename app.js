@@ -304,23 +304,24 @@ app.post("/output.html", (request, response) => {
           </div>
           <div class="review">
             <button class="review_btn">대표리뷰</button>
-            <div class="colorTip">
-              <p>컬러 Tip</p>
-              <table>
-                <tr class="positive">
-                  <td>매우 긍정<br/>(80% 이상)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>긍정<br/>(20% 이하)</td>
-                </tr>
-                <tr class="negative">
-                  <td>부정<br/>(20% 이하)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>매우 부정<br/>(80% 이상)</td>
-                </tr>
-              </table>
-            </div>
               <div class="p_review">
                 <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
                 <h2 class="best_review"> ${product.best_review}</h2>
              
                 <div class="p_worst_review">부정리뷰<img class="imo upset" src="./images/upset.png"></div>
                 <h2 class="worst_review">${product.worst_review}</h2>
+                <br>
+                <div class="colorTip">
+                  <p>※ 아래 색상표와 대조하여 <br/>긍정과 부정 리뷰 비율을 알 수 있습니다.</p>
+                  <table>
+                    <tr class="positive">
+                      <td>매우 긍정<br/>(80% 이상)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>긍정<br/>(20% 이하)</td>
+                    </tr>
+                    <tr class="negative">
+                      <td>부정<br/>(20% 이하)</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td>매우 부정<br/>(80% 이상)</td>
+                    </tr>
+                  </table>
+                </div>
                 <br><br>
               </div>
           </div>

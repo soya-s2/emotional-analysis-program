@@ -134,7 +134,7 @@ button {
 .review_btn {
   font-family: "NEXON Lv1 Gothic OTF Bold";
   margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 
 .p_name {
@@ -310,27 +310,25 @@ button {
 
 .worst_review {
   background-color: #7800001c;
+  margin-bottom: 3em;
 }
 
 /* Color-Tip */
 .colorTip {
-  width: 80%;
-  font-size: 3em;
-  border: 1px solid black;
   border-radius: 2em;
   padding: 1em;
   margin: 0 auto 3em auto;
 }
 
 .colorTip td {
-  font-size: 0.5em;
+  font-size: 1.5em;
   font-family: "NEXON Lv1 Gothic OTF";
 }
 
 .colorTip p {
+  font-size: 2em;
   margin: 0 auto 3% auto;
-  font-size: 1em;
-  font-family: "NEXON Lv1 Gothic OTF Bold";
+  font-family: "NEXON Lv1 Gothic OTF";
   font-weight: bold;
 }
 
