@@ -8,6 +8,9 @@ var isTouch = false;
 var basic_cnt = 0;
 var detail_cnt = 0;
 var review_cnt = 0;
+const best_review_color = ["#001d07", "#00290a", "#003b0f", "#014712", "#014712a6", "#01471294", "#00581694", "#01641a6e", "#0081206e", "#00812041"];
+const worst_review_color = ["#7800001c", "#78000033", "#78000056", "#78000081", "#780000b0", "rgb(150 8 8 / 88%)", "#b70202", "#b10000", "#A20000", "#400"];
+const state = 0.15;
 
 window.onload = function () {
   window.scrollTo(0, 0);
@@ -29,6 +32,20 @@ window.onload = function () {
   const danger_visible = document.getElementsByClassName("danger");
   const click_visible = document.querySelector(".mouse");
   data = document.getElementsByTagName("p");
+
+  const td = document.getElementsByTagName("td");
+  const pos = document.querySelector(".positive_result");
+  const neg = document.querySelector(".negative_result");
+
+  var color_number = Math.round(state * 10, 0);
+  for (var i=0; i<color_number; i++) {
+    td[i+1].style.backgroundColor = best_review_color[i];
+  }
+  for (var i=color_number; i<td.length-2; i++) {
+    td[i+1].style.backgroundColor = worst_review_color[worst_review_color.length - (i+1)];
+  }
+  pos.innerText =  state * 100;
+  neg.innerText =  100 - (state * 100);
 
   const touch = function (event) {
     isTouch = true;

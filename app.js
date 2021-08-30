@@ -69,10 +69,6 @@ app.get("/css/danger.css", (request, response) => {
   response.sendFile(__dirname + "/css/" + "danger.css");
 });
 
-app.get("/css/imo.css", (request, response) => {
-  response.sendFile(__dirname + "/css/" + "imo.css");
-});
-
 /* --------------------------- IMAGE -------------------------- */
 app.get("/images/flash-off.png", (request, response) => {
   response.sendFile(__dirname + "/images/" + "flash-off.png");
@@ -305,12 +301,24 @@ app.post("/output.html", (request, response) => {
           <div class="review">
             <button class="review_btn">대표리뷰</button>
               <div class="p_review">
-                <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
+                <div class="p_best_review">긍정리뷰</div>
                 <h2 class="best_review"> ${product.best_review}</h2>
              
-                <div class="p_worst_review">부정리뷰<img class="imo upset" src="./images/upset.png"></div>
+                <div class="p_worst_review">부정리뷰</div>
                 <h2 class="worst_review">${product.worst_review}</h2>
                 <br><br>
+                <div class="ann_review">※ 이 제품을 구매한 고객들은 아래와 같이 평가했어요.</div>
+                <table>
+                  <tr class="colorTip">
+                    <td>긍정</td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td>부정</td>
+                  </tr>
+                </table>
+                <br/>
+                <p class="ann_review_per">
+                  <a class="emp" style="color: rgb(1, 121, 1)">긍정적</a>으로 리뷰한 구매자는 <span class="positive_result"></span>%, <br/>
+                  <a class="emp" style="color: rgb(180, 0, 0)">부정적</a>으로 리뷰한 구매자는 <span class="negative_result"></span>% 입니다.
+                </p>
+                <br/>
               </div>
           </div>
         </div>

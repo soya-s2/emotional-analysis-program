@@ -279,7 +279,8 @@ button {
   height: 80%;
 }
 
-.p_best_review, .p_worst_review {
+.p_best_review,
+.p_worst_review {
   font-size: 3em;
   font-weight: bold;
   font-family: "NEXON Lv1 Gothic OTF Bold";
@@ -294,7 +295,8 @@ button {
   color: #bd0d00;
 }
 
-.best_review, .worst_review {
+.best_review,
+.worst_review {
   font-size: 2em;
   font-family: "NEXON Lv1 Gothic OTF";
   letter-spacing: 0.1em;
@@ -303,9 +305,46 @@ button {
 }
 
 .best_review {
-  background-color: #01590b2a;
+  background-color: #005e0b4b;
 }
 
 .worst_review {
-  background-color:#bd0d001c;
+  background-color: #af000036;
+}
+
+.ann_review,
+.ann_review_per {
+  margin: 2em auto 2em auto;
+  font-size: 2.1em;
+  font-family: "NEXON Lv1 Gothic OTF" !important;
+}
+
+.colorTip td {
+  padding: 0.3em;
+  width: 6%;
+  height: 5%;
+}
+
+.colorTip td:first-child,
+.colorTip td:last-child {
+  font-family: "NEXON Lv1 Gothic OTF";
+  font-size: 2em;
+  width: 10% !important;
+}
+
+span {
+  font-size: 1.5em;
+  font-family: "NEXON Lv1 Gothic OTF";
+}
+
+.positive_result {
+  color: rgb(1, 121, 1);
+}
+
+.negative_result {
+  color: rgb(180, 0, 0);
+}
+
+.emp {
+  font-family: "NEXON Lv1 Gothic OTF" !important;
 }

@@ -5,6 +5,7 @@
       <title>output.html</title>
       <link href="./css/output.css" type="text/css" rel="stylesheet" />
       <link href="./css/danger.css" type="text/css" rel="stylesheet" />
+      <link href="./css/imo.css" type="text/css" rel="stylesheet" />
       <script src="./js/output.js"></script>
     </head>
     <body>
@@ -46,11 +47,18 @@
           <div class="review">
             <button class="review_btn">대표리뷰</button>
               <div class="p_review">
-                <div class="p_best_review">긍정리뷰 <img src="./images/smile.png"></div>
+                <div class="p_best_review">긍정리뷰 <img class="imo smile" src="./images/smile.png"></div>
                 <h2 class="best_review"> ${product.best_review}</h2>
              
-                <div class="p_worst_review">부정리뷰<img src="./images/upset.png"></div>
+                <div class="p_worst_review">부정리뷰<img class="imo upset" src="./images/upset.png"></div>
                 <h2 class="worst_review">${product.worst_review}</h2>
+                <br><br>
+                <div class="ann_review">※ 이 제품을 구매한 고객들은 아래와 같이 평가했어요.</div>
+                <table>
+                  <tr class="colorTip">
+                    <td>긍정</td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> <td>부정</td>
+                  </tr>
+                </table>
               </div>
           </div>
         </div>
